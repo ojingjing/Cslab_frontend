@@ -1,5 +1,17 @@
+<<<<<<< Updated upstream
 import React, { useState } from 'react';
 import {View, StyleSheet, TextInput,SafeAreaView,Button,Alert  } from 'react-native';
+=======
+import React, { useState } from "react";
+import {
+    View,
+    StyleSheet,
+    TextInput,
+    SafeAreaView,
+    Button,
+    Alert,
+} from "react-native";
+>>>>>>> Stashed changes
 
 const Signup = () => {
     const [email, setEmail] = useState('');
