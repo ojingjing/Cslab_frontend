@@ -4,6 +4,8 @@ import React, { useState } from "react";
 
 const backgroundImage = require("../assets/ORA.jpg");
 const Login = ({ navigation }) => {
+    let API_URL = "http://ggwa.devcs.co.kr/api";
+
     return (
         <View style={styles.box}>
             <Image source={backgroundImage} style={styles.backgroundImage} />
@@ -27,6 +29,23 @@ const Login = ({ navigation }) => {
                     // value={password}
                     // onChangeText={setPassword}
                     secureTextEntry
+                />
+                <Button
+                    title="Login"
+                    onPress={(email, password) =>
+                        fetch(API_URL + "/member/signin", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                            },
+                            body: JSON.stringify({
+                                email: email,
+                                password: password,
+                            }),
+                        })
+                            .then((res) => res.json())
+                            .then((res) => console.log(res))
+                    }
                 />
                 <Button
                     onPress={() => navigation.navigate("signup")}
